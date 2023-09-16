@@ -1,7 +1,10 @@
-require_relative "ui" # O "require_relative" referencia arquivos locais
+require_relative "ui"
 
 def set_word
-    "Programmer"
+    words = File.read("dictionary.txt") # Essa função lê um arquivo da pasta local
+    words = words.split "\n" # Transforma em um array separando a string pelos "\n"
+
+    words[rand(words.size)].downcase # Transforma o texto em lowercase
 end
 
 def update_mask(secret_word, letters, mask)
@@ -19,7 +22,6 @@ def update_mask(secret_word, letters, mask)
 end
 
 def play
-    points = 0
     letters = []
     errors = 0
     secret_word = set_word
@@ -49,9 +51,13 @@ def play
         else
             mask = update_mask(secret_word, letters, mask)
         end
-    end
 
-    puts "You won #{points} points!"
+        if mask == secret_word
+            puts "You Won!"
+
+            break
+        end
+    end
 end
 
 loop do

@@ -1,0 +1,6 @@
+programmer
+software
+hardware
+developer
+refactor
+code

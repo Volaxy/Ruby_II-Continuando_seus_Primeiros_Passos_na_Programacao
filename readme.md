@@ -24,5 +24,8 @@ URL do curso -> [Ruby II - Continuando seu Primeiros Passos na Programação](ht
 ## 02 - Refatorando e Organizando o Código
 * Referenciar arquivos locais com `require_relative`.
 
+## 03 - Lendo, Escrevendo em Arquivos e Entendendo a Pilha de Execução
+* Ler um arquivo com `File.read("FILE_NAME")`.
+
 ## :black_nib: Licença
 [Unlicense](https://unlicense.org)

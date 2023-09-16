@@ -1,5 +1,5 @@
 def show_board(mask, letters, errors)
-    puts mask
+    puts "Secret Word: #{mask}"
     puts "You kick the letters: #{letters}"
     puts "You have #{errors} errors"
 end
