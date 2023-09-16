@@ -1,29 +1,44 @@
+require_relative "ui" # O "require_relative" referencia arquivos locais
+
 def set_word
     "Programmer"
 end
 
-def kick_word(letters, errors)
-    puts "You kick the letters: #{letters}"
-    puts "You have #{errors} errors"
-    puts "Choose a letter"
+def update_mask(secret_word, letters, mask)
+    mask = ""
+    
+    for char in secret_word.chars
+        if letters.include? char
+            mask << char
+        else
+            mask << "_"
+        end
+    end
 
-    gets.strip
+    mask
 end
 
 def play
     points = 0
     letters = []
     errors = 0
-
     secret_word = set_word
-
+    mask = ""
+    
+    mask = update_mask(secret_word, letters, mask)
+    
     while errors < 5
-        kick = kick_word(letters, errors)
+        show_board(mask, letters, errors)
+        kick = ""
+        
+        loop do
+            kick = kick_letter
 
-        if letters.include? kick
+            if !letters.include? kick
+                break
+            end
+
             puts "Have you already kicked this letter!"
-
-            next # Cancela a iteração atual e vai para a próxima iteração
         end
 
         letters << kick
@@ -31,18 +46,13 @@ def play
         if secret_word.count(kick) == 0
             "Letter not found!"
             errors += 1
+        else
+            mask = update_mask(secret_word, letters, mask)
         end
     end
 
     puts "You won #{points} points!"
 end
-
-def want_to_play?
-    puts "Do you want to play again? (S/N)"
-
-    gets.strip.upcase == "S"
-end
-
 
 loop do
     play

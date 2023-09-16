@@ -21,5 +21,8 @@ URL do curso -> [Ruby II - Continuando seu Primeiros Passos na Programação](ht
 * Contar a quantidade de vezes que algo aparece em um *array* com `.count(VARIABLE)`.
 * Verificar se um *array* inclui um valor com `.include?`.
 
+## 02 - Refatorando e Organizando o Código
+* Referenciar arquivos locais com `require_relative`.
+
 ## :black_nib: Licença
 [Unlicense](https://unlicense.org)
